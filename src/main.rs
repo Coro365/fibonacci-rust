@@ -1,7 +1,7 @@
 use std::io;
 
 fn main() {
-    println!("Please input fibonacci index number!(1-93)");
+    println!("Please input fibonacci index number!(1-186)");
     
     let mut request = String::new();
     
@@ -19,12 +19,14 @@ fn main() {
 }
 
 fn fibonacci(request: usize) {
-    let mut memo = vec![0usize, 1];
-    let mut cunt: usize = 2;
-    println!("{:?}", memo);
+    let mut memo = vec![0u128, 1];
+    let mut cunt: usize = 0;
 
     while request >= cunt {
-        memo.push(memo[cunt - 1] + memo[cunt -2]);
+        if cunt >= 2 {
+            memo.push(memo[cunt - 1] + memo[cunt -2]);
+        }
+
         println!("[{}]: {}", cunt, memo[cunt]);
         cunt += 1;
     }
